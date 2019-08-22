@@ -1,28 +1,54 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <warningbar id="flex-top"/>
+      <mainview id="flex-middle"/>
+      <bottombar id="flex-bottom"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import warningbar from './components/TOP/warningbar.vue'
+import mainview from './components/MIDDLE/mainview.vue'
+import bottombar from './components/BOTTOM/bottombar.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    warningbar,
+    mainview,
+    bottombar,
   }
 }
 </script>
 
 <style>
+body,html{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+#flex-top {
+  width: 100%;
+  height: 50px;
+}
+
+#flex-middle {
+  width: 100%;
+  flex: 1;
+}
+
+#flex-bottom {
+  width: 100%;
+  height: 40px;
 }
 </style>
