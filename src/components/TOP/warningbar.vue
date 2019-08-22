@@ -1,12 +1,15 @@
 <template>
-    <div class="back">
-        
+    <div class="back" style="height:60px;">
+        {{msg}}
     </div>
 </template>
 
 <script>
 export default {
-    name: 'warningbar'
+    name: 'warningbar',
+    props: {
+        msg: String
+    }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <warningbar id="flex-top"/>
+      <warningbar id="flex-top" :msg="connectmessage"/>
       <mainview id="flex-middle"/>
       <bottombar id="flex-bottom"/>
   </div>
@@ -16,7 +16,12 @@ export default {
     warningbar,
     mainview,
     bottombar,
-  }
+  },
+  data() {
+    return {
+      connectmessage:"hehea",
+    }
+  },
 }
 </script>
 
@@ -32,14 +37,12 @@ body,html{
 #app {
   width: 100%;
   height: 100%;
-  background-color: aquamarine;
   display: flex;
   flex-direction: column;
 }
 
 #flex-top {
   width: 100%;
-  height: 50px;
 }
 
 #flex-middle {
