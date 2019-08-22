@@ -6,12 +6,12 @@
 
 <script>
 export default {
-    name:'sidebar'
+    name: 'sidebar'
 }
 </script>
 
 <style scoped>
-.back{
-    background-color: rgb(190, 157, 188);
+.back {
+    background-color: rgb(194, 120, 189);
 }
 </style>

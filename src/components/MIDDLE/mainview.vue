@@ -1,5 +1,5 @@
 <template>
-    <div class="back">
+    <div class="backg">
         <sidebar id="left"/>
         <network id="right"/>
     </div>
@@ -18,13 +18,13 @@ export default {
 </script>
 
 <style scoped>
-.back{
-    background-color: rgb(42, 90, 133);
+.backg{
+    background-color: rgb(97, 131, 165);
     display: flex;
     flex-direction: row;
 }
 #left {
-    width: 160px;
+    width: 120px;
     height: 100%;
 }
 #right {
