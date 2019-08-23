@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import sidebar from './sidebar.vue'
-import network from './content/network.vue'
+import sidebar from './LEFT/sidebar.vue'
+import network from './RIGHT/network.vue'
 export default {
     name:'mainview',
     components:{
