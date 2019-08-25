@@ -12,7 +12,6 @@ import MainView from '../components/MIDDLE/mainview.vue'
 import BottomBar from '../components/BOTTOM/bottombar.vue'
 
 export default {
-  name: 'app',
   components: {
       WarningBar,
       MainView,

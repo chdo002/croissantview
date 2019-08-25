@@ -15,6 +15,6 @@ export default {
 
 <style scoped>
 .back {
-    background-color: rgb(70, 186, 221);
+    background-color: rgb(194, 221, 107);
 }
 </style>
