@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-      <warningbar id="flex-top" :msg="connectmessage"/>
-      <mainview id="flex-middle"/>
-      <bottombar id="flex-bottom"/>
+      <WarningBar id="flex-top" :msg="connectmessage"/>
+      <MainView id="flex-middle"/>
+      <BottomBar id="flex-bottom"/>
   </div>
 </template>
 
 <script>
-import warningbar from './components/TOP/warningbar.vue'
-import mainview from './components/MIDDLE/mainview.vue'
-import bottombar from './components/BOTTOM/bottombar.vue'
+import WarningBar from '../components/TOP/warningbar.vue'
+import MainView from '../components/MIDDLE/mainview.vue'
+import BottomBar from '../components/BOTTOM/bottombar.vue'
+
 export default {
   name: 'app',
   components: {
-    warningbar,
-    mainview,
-    bottombar,
+      WarningBar,
+      MainView,
+      BottomBar,
   },
   data() {
     return {
