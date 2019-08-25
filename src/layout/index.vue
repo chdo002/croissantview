@@ -8,7 +8,7 @@
 
 <script>
 import WarningBar from '../components/TOP/warningbar.vue'
-import MainView from '../components/MIDDLE/mainview.vue'
+import MainView from '../components/MIDDLE/index.vue'
 import BottomBar from '../components/BOTTOM/bottombar.vue'
 
 export default {

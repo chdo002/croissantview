@@ -1,17 +1,18 @@
 <template>
     <div class="back">
-        
+        <router-link to="/foo">Go to Foo</router-link>
     </div>
 </template>
 
 <script>
-export default {
 
-}
+    export default {
+
+    }
 </script>
 
 <style lang="scss" scoped>
 .back {
-    background-color: $bottom-bar-color
+    background-color: $side-back-color;
 }
 </style>

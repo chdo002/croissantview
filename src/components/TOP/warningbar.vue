@@ -12,8 +12,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .back {
-    background-color: rgb(194, 221, 107);
+    background-color: $top-bar-color;
 }
 </style>
