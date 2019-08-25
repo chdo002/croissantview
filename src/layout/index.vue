@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <WarningBar id="flex-top" :msg="connectmessage"/>
+      <WarningBar id="flex-top"/>
       <MainView id="flex-middle"/>
       <BottomBar id="flex-bottom"/>
   </div>
@@ -17,12 +17,7 @@ export default {
       WarningBar,
       MainView,
       BottomBar,
-  },
-  data() {
-    return {
-      connectmessage:"hehea",
-    }
-  },
+  }
 }
 </script>
 
