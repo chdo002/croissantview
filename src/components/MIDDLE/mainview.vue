@@ -9,7 +9,6 @@
 import sidebar from './LEFT/sidebar.vue'
 import network from './RIGHT/network.vue'
 export default {
-    name:'mainview',
     components:{
         sidebar,
         network,

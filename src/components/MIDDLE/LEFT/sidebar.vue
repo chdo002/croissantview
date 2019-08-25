@@ -9,8 +9,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
 .back {
-    background-color: rgb(194, 120, 189);
+    background-color:$test;
 }
 </style>

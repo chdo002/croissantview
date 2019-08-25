@@ -6,7 +6,6 @@
 
 <script>
 export default {
-    name: 'warningbar',
     props: {
         msg: String
     }
