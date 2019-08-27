@@ -1,7 +1,7 @@
 <template>
     <div class="backg">
         <SideBar id="left"/>
-        <router-view id="right" />
+        <router-view id="right"></router-view>
     </div>
 </template>
 
