@@ -1,15 +1,13 @@
 <template>
-    <div class="back">
-<!--        <router-link to="/foo" class="item active">Go to Foo</router-link>-->
-<!--        <router-link to="/bar" class="item">Go to Bar</router-link>-->
+    <div class="back shadow">
         <div v-for="(item, index) in list">
             <router-link
                     :to="item.path"
-                    class="memulink"
+                    class="item"
+                    tag="div"
+                    active-class="active"
             >
-                <div class="item">
-                    {{item.name}}
-                </div>
+                {{item.name}}
             </router-link>
         </div>
     </div>
@@ -36,21 +34,17 @@
         height: 35px;
         line-height: 35px;
         font-size: 14px;
-        color: #333;
         background-color: #fff;
+        color: #333;
         text-decoration: none;
         text-align: center;
     }
-    .memulink {
-        text-decoration: none;
-    }
-    .item:hover{
-        background-color:#ccc;
-        color: #333333;
-    }
     .active{
-        background-color: #ccc;
+        background-color: rosybrown;
         color: red;
     }
-
+    .shadow {
+        box-shadow:$bar-shadow;
+        z-index: 20;
+    }
 </style>

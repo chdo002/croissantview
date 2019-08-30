@@ -10,12 +10,12 @@ export const routes = [
     {
         path: '/netWork',
         component: NetWork,
-        name:"网络"
+        name:"网络1"
     },
     {
         path: '/log',
         component: LogWork,
-        name:"日志"
+        name:"日志2"
     }
 ];
 
