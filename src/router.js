@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NetWork from '@/components/MIDDLE/PAGES/network'
+import NetWork from '@/components/MIDDLE/PAGES/traffic'
 import LogWork from '@/components/MIDDLE/PAGES/logview'
 
 Vue.use(Router);
