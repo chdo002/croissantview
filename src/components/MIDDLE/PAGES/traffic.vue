@@ -1,7 +1,9 @@
 <template id="back">
     <div>
         <div class="list-bar">
+            <HostCompoment>
 
+            </HostCompoment>
         </div>
         <div class="content-area">
 
@@ -11,7 +13,11 @@
 </template>
 
 <script>
+    import HostCompoment from '@/components/MIDDLE/PAGES/host/host'
     export default {
+        components:{
+            HostCompoment
+        },
         data(){
             return {
 
@@ -22,7 +28,7 @@
 
 <style lang="scss" scoped>
     .list-bar {
-        background-color: darkgray;
+        background-color: #2B3E50;
         width: 200px;
         height: 100%;
         box-shadow: $bar-shadow;

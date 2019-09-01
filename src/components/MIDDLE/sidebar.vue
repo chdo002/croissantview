@@ -1,6 +1,6 @@
 <template>
     <div class="back shadow">
-        <div v-for="(item, index) in list">
+        <div v-for="(item) in list">
             <router-link
                     :to="item.path"
                     class="item"
@@ -31,17 +31,19 @@
         flex-direction: column;
     }
     .item {
-        height: 35px;
-        line-height: 35px;
+        height: 45px;
+        line-height: 45px;
         font-size: 14px;
-        background-color: #fff;
-        color: #333;
+        color: #fff;
         text-decoration: none;
         text-align: center;
     }
     .active{
-        background-color: rosybrown;
-        color: red;
+        background-color: #1E3039 !important;
+        color: #41B983;
+    }
+    .item:hover {
+        background-color: #1E3039;
     }
     .shadow {
         box-shadow:$bar-shadow;
