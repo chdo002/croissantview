@@ -14,7 +14,8 @@
 </template>
 
 <script>
-    import {routes} from '@/router'
+
+    import { routes } from '@/router'
     export default {
         data (){
             return {

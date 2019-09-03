@@ -1,10 +1,17 @@
-<template id="back">
-    <div>
-        <div class="list-bar">
-            <HostCompoment>
+<template>
+    <div  class="back">
 
-            </HostCompoment>
+        <div class="host-bar">
+            <div class="host-list">
+                <Host>
+
+                </Host>
+            </div>
+            <div class="host-filter">
+
+            </div>
         </div>
+
         <div class="content-area">
 
         </div>
@@ -13,10 +20,10 @@
 </template>
 
 <script>
-    import HostCompoment from '@/components/MIDDLE/PAGES/host/host'
+    import Host from '@/components/MIDDLE/PAGES/host/host'
     export default {
         components:{
-            HostCompoment
+            Host
         },
         data(){
             return {
@@ -27,12 +34,26 @@
 </script>
 
 <style lang="scss" scoped>
-    .list-bar {
+    .back{
+        display: flex;
+        flex-direction: row;
+    }
+    .host-bar {
+        display: flex;
+        flex-direction: column;
         background-color: #2B3E50;
-        width: 200px;
+        width: 250px;
         height: 100%;
         box-shadow: $bar-shadow;
         z-index: 12;
+    }
+    .host-list {
+        background-color: bisque;
+        flex: 1;
+    }
+    .host-filter {
+        background-color: #41B983;
+        height: 40px;
     }
     .content-area {
         background-color: white;

@@ -27,6 +27,5 @@ export default {
 }
 #right {
     flex: 1;
-    display: flex;
 }
 </style>
