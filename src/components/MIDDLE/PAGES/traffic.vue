@@ -8,7 +8,10 @@
                 </Host>
             </div>
             <div class="host-filter">
-
+                <label>asdfsd</label>
+                <label style="flex: 1">
+                    <input style="flex: 1">
+                </label>
             </div>
         </div>
 
@@ -54,6 +57,10 @@
     .host-filter {
         background-color: #41B983;
         height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .content-area {
         background-color: white;
