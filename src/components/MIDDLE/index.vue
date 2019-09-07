@@ -1,7 +1,9 @@
 <template>
     <div class="backg">
-        <SideBar id="left"/>
-        <router-view id="right"></router-view>
+<!--        左侧菜单栏-->
+        <SideBar class="left-content"/>
+<!--        右侧内容-->
+        <router-view class="right-content"></router-view>
     </div>
 </template>
 
@@ -20,12 +22,15 @@ export default {
     background-color: $main-view-color;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
 }
-#left {
+.left-content {
     width: 120px;
     height: 100%;
 }
-#right {
+.right-content {
     flex: 1;
+    height: 100%;
 }
 </style>

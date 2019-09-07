@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .back {
-    background-color: $bottom-bar-color
+    background-color: $bottom-bar-color;
+    height: 40px;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-      <WarningBar id="flex-top"/>
-      <MainView id="flex-middle"/>
-      <BottomBar id="flex-bottom"/>
+      <WarningBar/>
+      <MainView/>
+      <BottomBar/>
   </div>
 </template>
 
@@ -36,17 +36,4 @@ body,html{
   flex-direction: column;
 }
 
-#flex-top {
-  width: 100%;
-}
-
-#flex-middle {
-  width: 100%;
-  flex: 1;
-}
-
-#flex-bottom {
-  width: 100%;
-  height: 40px;
-}
 </style>

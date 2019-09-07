@@ -1,5 +1,5 @@
 <template>
-    <div class="back" style="height:60px;">
+    <div class="back">
         {{msg}}
     </div>
 </template>
@@ -15,5 +15,6 @@ export default {
 <style lang="scss" scoped>
 .back {
     background-color: $top-bar-color;
+    height:60px;
 }
 </style>
