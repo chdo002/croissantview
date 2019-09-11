@@ -2,19 +2,25 @@
     <div  class="back">
 <!--左侧网络列表-->
         <div class="left-bar">
-<!--            列表-->
-            <div class="host-list">
-                <Host v-for="todo in allRequests" :msg="todo.text" @click.native="clickRequest(todo)"/>
+            <div style="display: flex;flex-direction: row;background-color: white">
+                <label style="width: 50%; text-align: center;">Structure</label>
+                <label style="width: 50%; text-align: center;">Sequence</label>
             </div>
+<!--            列表-->
+            <ul class="host-list">
+                <li v-for="todo in allRequests" >
+                    <host :request="todo"/>
+                </li>
+            </ul>
 <!--            底部过滤条-->
             <div class="host-filter">
-                <input class="filter-style" placeholder="Filter">
+                <input class="filter-style" placeholder="Filter" @input="onInput">
             </div>
         </div>
 
 <!--        右侧网络内容-->
         <div class="content-area">
-            <Request :msg="currentRequest"/>
+            <Request :request="currentRequest"/>
         </div>
 
     </div>
@@ -22,8 +28,8 @@
 
 <script>
 
-    import Host from '@/components/MIDDLE/PAGES/host/hostcell'
-    import Request from '@/components/MIDDLE/PAGES/host/requestcontent'
+    import Host from '@/components/MIDDLE/PAGES/requests/request-templates/request-cell'
+    import Request from '@/components/MIDDLE/PAGES/requests/request-templates/request-content'
 
     export default {
         components:{
@@ -37,13 +43,15 @@
         },
         computed: {
             allRequests: function () {
-                return this.$store.state.requests;
-            } 
+                return this.$store.getters.displayRequests;
+            }
         },
         methods:{
             clickRequest: function (request) {
-                // alert(request.text);
                 this.currentRequest = request;
+            },
+            onInput: function (content) {
+                this.$store.commit('addRequest',content.target.value);
             }
         }
     }
@@ -59,7 +67,7 @@
     .left-bar {
         display: flex;
         flex-direction: column;
-        background-color: #2B3E50;
+        background-color: rgba(221, 168, 137, 0.51);
         width: 250px;
         height: 100%;
         box-shadow: $bar-shadow;
@@ -67,6 +75,7 @@
     }
     .host-list { /* 域名列表 */
         /*flex: 1;*/
+        margin: 0 0 0 0;
         height: calc(100% - 40px);
         overflow:auto;
         display: flex;
@@ -90,5 +99,9 @@
     .content-area {
         background-color: white;
         flex: 1;
+    }
+    ul {
+        padding: 5px 5px 5px 5px;
+        list-style: none;
     }
 </style>

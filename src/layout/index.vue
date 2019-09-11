@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import WarningBar from '../components/TOP/warningbar.vue'
-import MainView from '../components/MIDDLE/index.vue'
+import WarningBar from '../components/TOP/warning-bar.vue'
+import MainView from '../components/MIDDLE/middle-index.vue'
 import BottomBar from '../components/BOTTOM/bottombar.vue'
 
 export default {

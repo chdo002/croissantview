@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SideBar from '@/components/MIDDLE/sidebar.vue'
+import SideBar from '@/components/MIDDLE/middle-sidebar.vue'
 // import Content from '@/components/MIDDLE/content.vue'
 export default {
     components:{

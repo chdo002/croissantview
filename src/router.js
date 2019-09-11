@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NetWork from '@/components/MIDDLE/PAGES/traffic'
-import LogWork from '@/components/MIDDLE/PAGES/logview'
+import Requests from '@/components/MIDDLE/PAGES/requests/requst-index'
+import Logs from '@/components/MIDDLE/PAGES/logs/log-index'
 
 Vue.use(Router);
 
 export const routes = [
     {
         path: '/netWork',
-        component: NetWork,
+        component: Requests,
         name:"网络1"
     },
     {
         path: '/log',
-        component: LogWork,
+        component: Logs,
         name:"日志2"
     }
 ];
