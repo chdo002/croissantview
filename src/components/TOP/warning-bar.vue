@@ -1,6 +1,14 @@
 <template>
-    <div class="back">
-        {{msg}}
+    <div 
+        style="height:60px;"
+        v-bind:class="{ backOn:connected, backOff:!connected}"
+    > 
+        <div v-if="connected">
+            Connected
+        </div>
+        <div v-else>
+            Disconnected, reload this page.
+        </div>
     </div>
 </template>
 
@@ -8,13 +16,21 @@
 export default {
     props: {
         msg: String
+    },
+    computed:{
+        
+        connected: function() {
+            return this.$store.state.isSocketConnected;
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.back {
-    background-color: $top-bar-color;
-    height:60px;
+.backOn {
+    background-color: $top-bar-color-connected;
+}
+.backOff {
+    background-color: $top-bar-color-disconnected;
 }
 </style>

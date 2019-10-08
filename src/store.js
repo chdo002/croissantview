@@ -8,14 +8,16 @@ const store = new Vuex.Store({
         // 网络请求
         requestFilterKeyword:undefined, // 请求过滤词
         allRequests:[], // 所有的请求
-        currentRequest:undefined
+        currentRequest:undefined,
+        /// 连接状态
+        isSocketConnected:false,
     },
     getters: {
         displayRequests: state => {
             if (state.requestFilterKeyword === undefined) {
                 return state.allRequests;
             } else {
-                return state.allRequests.filter(function (request) {
+                return state.allRequests.filter(function () {
                     // request.text
                 })
             }
@@ -27,7 +29,6 @@ const store = new Vuex.Store({
             state.allRequests.push({
                 text:newValue
             });
-
         },
         // 当前选中的请求
         changeCurrentRequest (state, newValue) {
@@ -36,6 +37,11 @@ const store = new Vuex.Store({
         // 过滤
         filterRequestWithKeyWord (state, keyWord) {
             state.requestFilterKeyword = keyWord;
+        },
+
+        // 更改socket连接状态 
+        changeSocketState(state, newValue) {
+            state.isSocketConnected = newValue;
         }
     }
 });
