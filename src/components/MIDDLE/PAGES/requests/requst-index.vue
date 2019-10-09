@@ -7,7 +7,7 @@
                 <label style="width: 50%; text-align: center;">Sequence</label>
             </div>
 <!--            列表-->
-            <ul class="host-list">
+            <ul id="request-list" class="host-list">
                 <li v-for="todo in allRequests" >
                     <host :request="todo"/>
                 </li>
@@ -40,6 +40,14 @@
             return {
                 currentRequest: undefined
             }
+        },
+        watch:{
+          allRequests:function (val) {
+              this.$nextTick(()=>{
+                  let div = document.getElementById('request-list');
+                  div.scrollTop = div.scrollHeight;
+              });
+          }
         },
         computed: {
             allRequests: function () {

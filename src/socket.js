@@ -1,7 +1,9 @@
 
 import store from '@/store'
+import da from "element-ui/src/locale/lang/da";
+import de from "element-ui/src/locale/lang/de";
 
-const socket = new WebSocket('ws://localhost:8080/');
+const socket = new WebSocket('ws://localhost:8980/');
 
 socket.onopen = function() {
     // eslint-disable-next-line no-console
@@ -11,8 +13,14 @@ socket.onopen = function() {
 
 socket.onmessage = function(evt) {
     // eslint-disable-next-line no-console
-    console.log( "Received Message: " + evt.data);
-    store.commit('addRequest','content.target.value');
+    let data = evt.data;
+    console.log( "Received Message: " + data);
+    let obj = JSON.parse(data);
+    if (obj.type === 0) { // 网络请求
+        store.commit('addRequest',obj.content);
+    } else if (obj.type === 1) { // 日志
+        store.commit('addLog',obj.content);
+    }
 };
 
 socket.onclose = function() {
