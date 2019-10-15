@@ -7,7 +7,7 @@
             </div>
             <div id="resize"></div>
             <div id="right" style="border-top: 1px solid #b5b9a9; ">右边的div
-                      <svg width="100%" height="auto" id="serverSvg" ></svg>
+                <svg width="100%" height="auto" id="serverSvg" ></svg>
             </div>
             <p></p>
         </div>
@@ -28,28 +28,28 @@
         },
         methods: {
             dragControllerDiv: function () {
-                let resize = document.getElementById('resize')
-                let left = document.getElementById('left')
-                let right = document.getElementById('right')
-                let box = document.getElementById('box')
+                let resize = document.getElementById('resize');
+                let left = document.getElementById('left');
+                let right = document.getElementById('right');
+                let box = document.getElementById('box');
 
                 resize.onmousedown = function (e) {
-                    let startX = e.clientX
-                    resize.left = resize.offsetLeft
+                    let startX = e.clientX;
+                    resize.left = resize.offsetLeft;
                     document.onmousemove = function (e) {
                         let endX = e.clientX;
                         let moveLen = resize.left + (endX - startX);
-                        let maxT = box.clientWidth - resize.offsetWidth
+                        let maxT = box.clientWidth - resize.offsetWidth;
                         if (moveLen < 150) moveLen = 360;
                         if (moveLen > maxT - 800) moveLen = maxT - 800;
                         resize.style.left = moveLen;
                         left.style.width = moveLen + 'px';
-                        right.style.width = (box.clientWidth - moveLen - 5) + 'px'
+                        right.style.width = (box.clientWidth - moveLen - 5) + 'px';
                     }
                     document.onmouseup = function () {
-                        document.onmousemove = null
-                        document.onmouseup = null
-                        resize.releaseCapture && resize.releaseCapture()
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                        resize.releaseCapture && resize.releaseCapture();
                     };
                     resize.setCapture && resize.setCapture();
                     return false
