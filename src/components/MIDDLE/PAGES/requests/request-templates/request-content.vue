@@ -45,7 +45,7 @@
                         resize.style.left = moveLen;
                         left.style.width = moveLen + 'px';
                         right.style.width = (box.clientWidth - moveLen - 5) + 'px';
-                    }
+                    };
                     document.onmouseup = function () {
                         document.onmousemove = null;
                         document.onmouseup = null;
