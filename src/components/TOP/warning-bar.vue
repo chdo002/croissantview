@@ -1,6 +1,6 @@
 <template>
     <div 
-        style="height:60px;"
+        style="height:35px;"
         v-bind:class="{ backOn:connected, backOff:!connected}"
     > 
         <div v-if="connected">
@@ -18,7 +18,6 @@ export default {
         msg: String
     },
     computed:{
-        
         connected: function() {
             return this.$store.state.isSocketConnected;
         }

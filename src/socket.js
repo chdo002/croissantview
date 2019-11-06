@@ -14,7 +14,7 @@ socket.onopen = function() {
 socket.onmessage = function(evt) {
     // eslint-disable-next-line no-console
     let data = evt.data;
-    console.log( "Received Message: " + data);
+    // console.log( "Received Message: " + data);
     let obj = JSON.parse(data);
     if (obj.type === 0) { // 网络请求
         store.commit('addRequest',obj.content);

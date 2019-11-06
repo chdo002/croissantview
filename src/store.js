@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { stat } from 'fs';
 
 Vue.use(Vuex);
 
@@ -7,6 +8,7 @@ const store = new Vuex.Store({
     state: {
         /// 连接状态
         isSocketConnected:false,
+        requestListBarWidth:Number,
         // 网络请求
         requestFilterKeyword:undefined, // 请求过滤词
         allRequests:[], // 所有的请求
@@ -43,7 +45,9 @@ const store = new Vuex.Store({
         changeSocketState(state, newValue) {
             state.isSocketConnected = newValue;
         },
-
+        changeRequestBarWidth(state, newValue) {
+            state.requestListBarWidth = newValue;
+        },
         // 收到新网络请求
         addRequest (state, newValue) {
             state.allRequests.push({

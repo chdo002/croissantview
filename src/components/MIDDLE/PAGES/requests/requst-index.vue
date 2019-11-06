@@ -1,11 +1,12 @@
 <template>
-    <div  class="back">
+    <div  id="request-back" class="back">
+
 <!--左侧网络列表-->
-        <div class="left-bar">
-            <div style="display: flex;flex-direction: row;background-color: white">
+        <div id="request-left-list" class="left-bar">
+            <!-- <div style="display: flex;flex-direction: row;background-color: white">
                 <label style="width: 50%; text-align: center;">Structure</label>
                 <label style="width: 50%; text-align: center;">Sequence</label>
-            </div>
+            </div> -->
 <!--            列表-->
             <ul id="request-list" class="host-list">
                 <li v-for="todo in allRequests" >
@@ -18,8 +19,13 @@
             </div>
         </div>
 
-<!--        右侧网络内容-->
-        <div class="content-area">
+<!--中间调节-->
+        <div id="request-resize-bar" class="resize-bar">
+
+        </div>
+
+<!--右侧网络内容-->
+        <div id="request-content" class="content-area">
             <Request :request="currentRequest"/>
         </div>
 
@@ -32,6 +38,11 @@
     import Request from '@/components/MIDDLE/PAGES/requests/request-templates/request-content'
 
     export default {
+        mounted () {
+            this.setUpResizeAction();
+            let width = this.$store.state.requestListBarWidth;
+            this.changeLeftBarToWidth(width);
+        },
         components:{
             Host,
             Request
@@ -52,14 +63,54 @@
         computed: {
             allRequests: function () {
                 return this.$store.getters.displayRequests;
+            },
+            requestBack:function(){
+                return document.getElementById('request-back');
+            },
+            leftList:function () {
+                return document.getElementById('request-left-list');
+            },
+            resizeBar:function () {
+                return document.getElementById('request-resize-bar');
+            },
+            requestContent:function () {
+                return document.getElementById('request-content');
             }
         },
         methods:{
             clickRequest: function (request) {
+                debugger;
                 this.currentRequest = request;
             },
             onInput: function (content) {
                 this.$store.commit('addRequest',content.target.value);
+            },
+            setUpResizeAction:function() {
+                let self = this;
+                this.resizeBar.onmousedown = function (element) {
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                        self.resizeBar.releaseCapture && self.resizeBar.releaseCapture();
+                    };
+
+                    document.onmousemove = function (resizeBar) {
+                        let currentWidth = resizeBar.clientX - 120;
+                        self.changeLeftBarToWidth(currentWidth);
+                    }
+                };
+            },
+            changeLeftBarToWidth:function (newWidth) {
+                let targetW = newWidth;
+                if (newWidth < 140) {
+                    targetW = 140;
+                }
+                if (newWidth > 400) {
+                    targetW = 400;
+                }
+                this.$store.commit('changeRequestBarWidth',targetW);
+                this.leftList.style.width = targetW + 'px';
+                this.resizeBar.style.left = targetW + 'px';
             }
         }
     }
@@ -76,7 +127,7 @@
         display: flex;
         flex-direction: column;
         background-color: rgba(221, 168, 137, 0.51);
-        width: 250px;
+        width: 150px;
         height: 100%;
         box-shadow: $bar-shadow;
         z-index: 12;
@@ -102,6 +153,13 @@
             height: 25px;
             flex: 1;
         }
+    }
+    .resize-bar {
+        width: 10px;
+        background-color: #52e161;
+        box-shadow: $bar-shadow;
+        cursor: ew-resize;
+        z-index: 13;
     }
     /* 右侧内容 */
     .content-area {
