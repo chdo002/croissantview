@@ -1,6 +1,15 @@
 <template>
     <div class="back">
-        {{currentRequest}}
+
+        <div class="temp">
+            {{currentRequest.text.request}}
+        </div>
+        <div class="temp">
+            {{currentRequest.text.response}}
+        </div>
+        <div class="temp">
+            {{currentRequest.text.error}}
+        </div>
     </div>
 
 </template>
@@ -23,5 +32,8 @@
     .back{
         display: flex;
         flex-direction: column;
+    }
+    .temp {
+        padding-top: 10px;
     }
 </style>
