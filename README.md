@@ -1,6 +1,20 @@
 # croissantview
 
+## features 
+
+### network
+
+#### network record
+
+#### network mock
+
+### log
+
+### view checker
+
+
 ## Project setup
+
 ```
 npm install
 ```
