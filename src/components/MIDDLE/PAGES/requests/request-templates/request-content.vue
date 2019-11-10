@@ -1,68 +1,38 @@
 <template>
   <div class="back">
-    <!-- <div class="temp">
-            {{currentRequest.text.request}}
-            <br><br>
-            {{currentRequest.text.error}}
-        </div>
-        <div class="temp">
-            {{currentRequest.text.response}}
-        </div>
-        <div class="temp">
-            
-            
-    </div>-->
-
-    <ul>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-
-      <li>
-        22
-        <ul>
-          <li>12</li>
-          <li>12</li>
-          <li>13</li>
-          <li>12</li>
-          <li>13</li>
-          <li>
-            关键点
-            <ul v-if="true">
-              <li>12</li>
-              <li>13</li>
-              <li>
-                13
-                <ul>
-                  <li>13</li>
-                </ul>
-              </li>
-              <li>12</li>
-              <li>13</li>
-            </ul>
-          </li>
-          <li>结束</li>
-          <li>12</li>
-          <li>13</li>
-        </ul>
-      </li>
-
-      <li>14</li>
-      <li>14</li>
-      <li>14</li>
-    </ul>
+    <!-- {{currentRequest}} -->
+    <!-- <json-view :data="currentRequest" /> -->
+    <vue-json-pretty :data="currentRequest" :highlightMouseoverNode="true" @click="handleClick"></vue-json-pretty>
   </div>
 </template>
 
 <script>
+import jsonView from "vue-json-views";
+import VueJsonPretty from "vue-json-pretty";
+
 export default {
+  components: {
+    jsonView,
+    VueJsonPretty
+  },
   props: {
     request: Object
   },
+  mounted: function() {
+    if (this.$store.state.currentRequest !== undefined) {
+      // let contentHtml = renderj(this.$store.state.currentRequest);
+      // document.getElementById("json-content").appendChild(contentHtml);
+    }
+  },
   computed: {
-    // 计算属性的 getter
     currentRequest: function() {
-      return this.$store.state.currentRequest;
+      let request = this.$store.state.currentRequest;
+      return request.text;
+    }
+  },
+  methods: {
+    handleClick: function(param) {
+      console.log(param);
     }
   }
 };
@@ -70,8 +40,9 @@ export default {
 
 <style lang="scss" scoped>
 .back {
-  //   display: flex;
-  //   flex-direction: row;
+  display: flex;
+  // flex-direction: row;
+  // background-color: aquamarine;
 }
 li:nth-child(2n + 1) {
   background: #39f;

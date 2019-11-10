@@ -9,7 +9,7 @@
       <!--            列表-->
       <ul id="request-list" class="host-list">
         <li v-for="todo in allRequests">
-          <host :request="todo" />
+          <host v-bind:request="todo" />
         </li>
       </ul>
       <!--            底部过滤条-->
