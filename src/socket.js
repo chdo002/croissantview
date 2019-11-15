@@ -1,7 +1,5 @@
 
 import store from '@/store'
-import da from "element-ui/src/locale/lang/da";
-import de from "element-ui/src/locale/lang/de";
 
 const socket = new WebSocket('ws://localhost:8980/');
 

@@ -12,6 +12,7 @@
           <host v-bind:request="todo" />
         </li>
       </ul>
+
       <!--            底部过滤条-->
       <div class="host-filter">
         <input class="filter-style" placeholder="Filter" @input="onInput" />
@@ -87,7 +88,7 @@ export default {
         var e = event || window.event || arguments.callee.caller.arguments[0];
         // debugger;
         if (e) {
-          self.$store.commit("scrolllRequest",e.keyCode);
+          self.$store.commit("scrolllRequest", e.keyCode);
         }
       };
     },

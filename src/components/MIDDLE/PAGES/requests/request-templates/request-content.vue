@@ -1,22 +1,44 @@
 <template>
-  <div class="back">
+  <div>
+    <el-tabs @tab-click="handleTabClick" style="padding-left:10px;padding-right:10px">
+      <el-tab-pane label="request" name="first">
+        <vue-json-pretty
+          :data="currentRequest.text.request"
+          :highlightMouseoverNode="true"
+          @click="handleClick"
+        ></vue-json-pretty>
+      </el-tab-pane>
 
-    <!-- {{currentRequest}} -->
-    <!-- <json-view :data="currentRequest" /> -->
+      <el-tab-pane label="response" name="second">
+        <vue-json-pretty
+          :data="currentRequest.text.response"
+          :highlightMouseoverNode="true"
+          @click="handleClick"
+        ></vue-json-pretty>
+      </el-tab-pane>
 
-    <vue-json-pretty :data="currentRequest.text" :highlightMouseoverNode="true" @click="handleClick"></vue-json-pretty>
-
+      <el-tab-pane label="error" name="fourth">
+        <vue-json-pretty
+          :data="currentRequest.text.error"
+          :highlightMouseoverNode="true"
+          @click="handleClick"
+        ></vue-json-pretty>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
-
 import VueJsonPretty from "vue-json-pretty";
 
 export default {
-
   components: {
     VueJsonPretty
+  },
+  data() {
+    return {
+      activeName: "second"
+    };
   },
   props: {
     request: Object
@@ -28,21 +50,19 @@ export default {
     }
   },
   methods: {
-    handleClick: function(param) {
-      console.log(param);
+    handleTabClick(tab, event) {
+      console.log(tab, event);
+    },
+    handleClick(param){
+      console.log(param + "?????");
     }
-  },
-  watch: {
-    request:function(){
-      console.log("???????");
-    }
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .back {
-  display: flex;
+  // display: flex;
   // flex-direction: row;
   // background-color: aquamarine;
 }
