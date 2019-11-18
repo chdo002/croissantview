@@ -4,7 +4,6 @@
       :data="httpObj"
       :highlightMouseoverNode="true"
       @click="handleClick"
-      @change="handleChange"
     ></vue-json-pretty>
     <vue-json-pretty v-if="selectContent !== undefined" :data="selectContent"></vue-json-pretty>
   </div>
@@ -25,19 +24,21 @@ export default {
   props: {
     httpObj: Object
   },
-  updated() {
-    this.selectContent = httpObj.httpBody;
-  },
   methods: {
     handleClick(path, data, treeName = "") {
-      //   this.itemPath = path
-      //   this.itemData = !data ? data + '' : data // 处理 data = null 的情况
       this.selectContent = data;
-    },
-    handleChange(newVal, oldVal) {
-      console.log("newVal: ", newVal, " oldVal: ", oldVal);
     }
-  }
+  },
+  computed:{
+      prop_httpobj(){
+          return this.httpObj;
+      }
+  },
+  watch: {
+      prop_httpobj(newV,oldV){
+          this.selectContent = newV.httpBody;
+      }
+  },
 };
 </script>
 
